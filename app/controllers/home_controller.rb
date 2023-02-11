@@ -1,5 +1,3 @@
 class HomeController < ApplicationController
-  def welcome
-    @name = "vlad"
-  end
+  def index; end
 end
