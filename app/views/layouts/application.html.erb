@@ -7,9 +7,24 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container p-3">
+      <% flash.each do |type, msg| %>
+        <% next if msg.blank? %>
+          <% if type == "alert" %>
+            <div class="alert alert-danger" role="alert">
+                <%= msg %>
+            </div>
+          <% elsif type == "notice" %>
+          <div class="alert alert-info" role="alert">
+              <%= msg %>
+          </div>
+          <% end%>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>

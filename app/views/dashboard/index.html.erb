@@ -1,0 +1,17 @@
+<%= form_with url: tweet_path, method: :post do |form| %>
+<div class="h2">Tweets</div><br>
+<div class="input-group mb-3">
+  <input type="text" name="text" class="form-control" placeholder="What is new?" aria-describedby="button-addon"
+    required>
+  <div class="input-group-append">
+    <%= form.submit "Create tweet", class:"btn btn-outline-primary" %>
+  </div>
+</div>
+<% end %>
+<% Tweet.find_each do |tweet|%>
+<div class="border rounded p-2 mt-2">
+  <p><%= tweet.text %></p>
+  <p>From: <%= tweet.user.email %></p>
+</div>
+<% end %>
+<%= button_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-outline-secondary rounded-pill mt-5" %>

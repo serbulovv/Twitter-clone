@@ -29,6 +29,9 @@ Style/InlineComment:
 
 Rails/FilePath:
   Enabled: false
+
+Style/EmptyMethod:
+  Enable: false
   
 Layout/LineLength:
   Description: 'Limit lines to 100 characters. (Default is 80)'
