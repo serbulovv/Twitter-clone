@@ -1,7 +1,7 @@
 class TweetsController < ApplicationController
   def create
-    tweet = Tweet.create(user_id: current_user.id, text: params["text"])
-    flash[:alert] = tweet.valid? ? nil : "Invalid params"
-    redirect_to root_path
+    operation = Tweets::CreateOperation.new.call(params, current_user)
+    flash[:alert] = operation.parse_errors unless operation.success?
+    redirect_to dashboard_path
   end
 end

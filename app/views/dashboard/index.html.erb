@@ -8,10 +8,10 @@
   </div>
 </div>
 <% end %>
-<% Tweet.find_each do |tweet|%>
-<div class="border rounded p-2 mt-2">
+<% @tweets.each do |tweet|%>
+<div class="border rounded p-1 mt-2">
   <p><%= tweet.text %></p>
-  <p>From: <%= tweet.user.email %></p>
+  <p>From: <strong>@<%= tweet.user.username %></strong></p>
 </div>
 <% end %>
 <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-outline-secondary rounded-pill mt-5" %>
