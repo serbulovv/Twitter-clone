@@ -1,30 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>App</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-  </head>
+<head>
+  <title>App</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-  <body>
-    <div class="container p-3">
-      <% flash.each do |type, msg| %>
-        <% next if msg.blank? %>
-          <% if type == "alert" %>
-            <div class="alert alert-danger" role="alert">
-                <%= msg %>
-            </div>
-          <% elsif type == "notice" %>
-          <div class="alert alert-info" role="alert">
-              <%= msg %>
-          </div>
-          <% end%>
-      <% end %>
-      <%= yield %>
-    </div>
-  </body>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+</head>
+
+<body>
+  <div class="container">
+    <%= render partial: "shared/partials/flashes" %>
+    <%= yield %>
+  </div>
+</body>
+
 </html>
