@@ -1,0 +1,23 @@
+<head>
+  <%= stylesheet_link_tag 'dashboard' %>
+</head>
+<ul class="list-group  list-unstyled text-decoration-none menu">
+  <% menu_points = [
+    {element_name: "Home", path: dashboard_path, image_name: "home.png"},
+    {element_name: "Explore", path: dashboard_path, image_name: "hashtag.png"},
+    {element_name: "Notifications", path: dashboard_path, image_name: "bell.png"},
+    {element_name: "Messages", path: dashboard_path, image_name: "email.png"},
+    {element_name: "Bookmarks", path: dashboard_path, image_name: "bookmark.png"},
+    {element_name: "Lists", path: dashboard_path, image_name: "list.png"},
+    {element_name: "Profile", path: dashboard_path, image_name: "user.png"},
+    {element_name: "More", path: dashboard_path, image_name: "more.png"}
+   ] %>
+  <% menu_points.each  do |point| %>
+  <%= link_to point[:path], class: "text-decoration-none text-dark" do %>
+  <li class="d-flex mt-4">
+    <%= image_tag(point[:image_name], style: "max-width: 25px; max-height: 25px; margin-left: 15px;") %>
+    <h4 style="margin-left: 15px;"><%= point[:element_name] %></h4>
+  </li>
+  <% end %>
+  <% end %>
+</ul>
