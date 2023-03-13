@@ -1,0 +1,25 @@
+<div class="border border-top-0 d-flex h-10 w-100">
+  <div>
+    <%= link_to image_tag("user.png", class: "rounded-circle m-2", style: "max-width: 45px; max-height: 45px;"), dashboard_path %>
+  </div>
+  <div class="w-100">
+    <div class="p-1 d-flex h-25">
+      <!-- header with username and time -->
+      <b><%= tweet.user.username %></b>
+      <b>&nbsp;·&nbsp;</b>
+      <p><%= tweet.time_ago_in_words %></p>
+    </div>
+    <!-- tweet body -->
+    <div class="p-1">
+      <p><%= tweet.text %></p>
+    </div>
+    <!-- tweet buttons -->
+    <div class="d-flex justify-content-between w-75">
+      <%= image_tag("reply.png", class: "mx-1", style: "max-width: 15px; max-height: 15px;") %>
+      <%= image_tag("retweet.png", class: "mx-1", style: "max-width: 15px; max-height: 15px;") %>
+      <%= image_tag("like.png", class: "mx-1", style: "max-width: 15px; max-height: 15px;") %>
+      <%= image_tag("view.png", class: "mx-1", style: "max-width: 15px; max-height: 15px;") %>
+      <%= image_tag("share.png", class: "mx-1", style: "max-width: 15px; max-height: 15px;") %>
+    </div>
+  </div>
+</div>

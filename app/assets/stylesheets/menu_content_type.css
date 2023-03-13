@@ -1,0 +1,15 @@
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:focus {
+  outline: none;
+}
+
+span {
+  margin: 0 8px;
+}

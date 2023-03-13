@@ -1,7 +1,7 @@
 <head>
-  <%= stylesheet_link_tag 'dashboard' %>
+  <%= stylesheet_link_tag 'left_menu' %>
 </head>
-<ul class="list-group  list-unstyled text-decoration-none menu">
+<ul class="list-group list-unstyled text-decoration-none menu">
   <% menu_points = [
     {element_name: "Home", path: dashboard_path, image_name: "home.png"},
     {element_name: "Explore", path: dashboard_path, image_name: "hashtag.png"},
@@ -14,10 +14,11 @@
    ] %>
   <% menu_points.each  do |point| %>
   <%= link_to point[:path], class: "text-decoration-none text-dark" do %>
-  <li class="d-flex mt-4">
-    <%= image_tag(point[:image_name], style: "max-width: 25px; max-height: 25px; margin-left: 15px;") %>
-    <h4 style="margin-left: 15px;"><%= point[:element_name] %></h4>
+  <li class="d-flex align-items-center my-2 p-2">
+    <%= image_tag(point[:image_name], style: "max-width: 25px; max-height: 20px; margin-left: 3px;") %>
+    <p class="h5" style="margin:0px; margin-left: 15px;"><%= point[:element_name] %></p>
   </li>
   <% end %>
   <% end %>
+  <%= button_tag "Tweet", class: "btn btn-outline-secondary rounded-pill tweet-button mt-3 w-75" %>
 </ul>
