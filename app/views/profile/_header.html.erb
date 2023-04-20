@@ -1,0 +1,15 @@
+<div class="d-flex" style="align-items: center;">
+  <div class="menu">
+    <%= link_to dashboard_path style: "min-width: 45px; min-height: 45px;" do %>
+    <%= image_tag("back_button.png", style: "max-width: 17px; max-height: 25px; margin-left: 15px;") %>
+    <% end %>
+  </div>
+  <div style="margin-left: 30px;">
+    <b>
+      <p class=" d-inline" style="font-size: 1.2em;"><%= current_user.first_name %></p>
+    </b>
+    <div>
+      <p class=" d-inline" style="font-size: smaller;"><%= current_user.tweets.size %> Tweets</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+      <div class="p-2 border">
+        <p class="h5"><b>Home</b></p>
+        <div class="d-flex justify-content-center align-items-center mt-3">
+          <a href="#" class="mx-2 font-weight-bold text-dark">For you</a>
+          <span class="text-muted">·</span>
+          <a href="#" class="mx-2 font-weight-bold text-muted">Following</a>
+        </div>
+      </div>
+      <%= render "shared/tweets/new_tweet_form" %>
+      <div id="tweets">
+        <% @tweets.each do |tweet|%>
+        <%= render "shared/tweets/tweet", tweet: tweet %>
+        <% end %>
+      </div>
+      
+      <%= turbo_frame_tag :pagination, loading: :lazy, src: dashboard_path(format: :turbo_stream) %>

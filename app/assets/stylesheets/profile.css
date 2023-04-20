@@ -1,0 +1,38 @@
+#profile_image {
+  min-width: 130px;
+  min-height: 130px;
+  max-width: 130px;
+  max-height: 130px;
+  position: relative;
+  top: 5px;
+  left: 5px;
+  background: white;
+  border-radius: 50%;
+}
+
+#profile_image_background {
+  max-width: 140px;
+  max-height: 150px;
+  position: relative;
+  top: -60px;
+  left: 30px;
+  background: white;
+  border-radius: 50%;
+}
+
+.setup_profile_button {
+  position: relative;
+  top: -60px;
+  left: -15px;
+  border-radius: 30px !important; 
+  color: black;
+}
+
+.info_block {
+  position: relative;
+  top: -80px;
+}
+
+.profile_block {
+  max-height: 500px;
+}

@@ -1,0 +1,11 @@
+<%= turbo_stream.append :tweets do %>
+<% @tweets.each do |tweet|%>
+<%= render "shared/tweets/tweet", tweet: tweet %>
+<% end %>
+<% end %>
+
+<%= turbo_stream.replace :pagination do %>
+<% if @pagy.next.present? %>
+<%= turbo_frame_tag :pagination, loading: :lazy, src: dashboard_path(format: :turbo_stream, page: @pagy.next) %>
+<% end %>
+<% end %>

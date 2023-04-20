@@ -1,0 +1,104 @@
+ <div data-controller="update-profile">
+   <!-- Icon -->
+   <div class="modal" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1"
+     data-bs-backdrop="static" data-bs-keyboard="false">
+     <div class="modal-dialog modal-dialog-centered" style="max-width: 610px !important;">
+       <div class="modal-content">
+         <div class="modal-body d-flex justify-content-center align-items-center flex-column"
+           style="padding-left: 70px; padding-right: 70px;">
+           <%= image_tag("twitter_icon.png", class: "img-fluid h-25", style: "max-width: 30px; max-height: 30px;") %>
+           <p class="h2 mt-4 w-100"><b>Pick a profile picture</b></p>
+           <p class="d-inline w-100" style="font-size: 15px; color:grey;">Have a favorite selfie? Upload it now.</p>
+           <%= form_with url: profile_update_avatar_path, method: :post, data: { update_profile_target: "imageForm" } do |form| %>
+           <%= form.file_field :avatar, class: "d-none", data: { update_profile_target: "fileField" }, maxlength: "2000000" %>
+           <%= image_tag("user.png", class: "img-fluid", data: { update_profile_target: "image" }, style: "max-width: 175px; margin-top: 80px;" ) %>
+           <% end %>
+           <button class="btn btn-outline-secondary w-75" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
+             style="margin-top: 150px; border-radius: 30px;">Skip for
+             now</button>
+         </div>
+       </div>
+     </div>
+   </div>
+   <!-- Background -->
+   <div class="modal" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel3"
+     tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+     <div class="modal-dialog modal-dialog-centered" style="max-width: 610px !important;">
+       <div class="modal-content">
+         <div class="modal-body d-flex justify-content-center align-items-center flex-column"
+           style="padding-left: 70px; padding-right: 70px;">
+           <%= image_tag("twitter_icon.png", class: "img-fluid h-25", style: "max-width: 30px; max-height: 30px;") %>
+           <p class="h2 mt-4 w-100"><b>Pick a background picture</b></p>
+           <p class="d-inline w-100" style="font-size: 15px; color:grey;">Have a nice misuc cover? Upload it!</p>
+           <%= form_with url: profile_update_profile_background_path, method: :post, data: { update_profile_target: "imageSecondForm" } do |form| %>
+           <%= form.file_field :profile_background, class: "d-none", data: { update_profile_target: "fileFieldSecond" }, maxlength: "2000000" %>
+           <%= image_tag("profile_background.png", class: "img-fluid", data: { update_profile_target: "imageSecond" }, style: "max-width: 475px; margin-top: 80px;" ) %>
+           <% end %>
+           <button class="btn btn-outline-secondary w-75" data-bs-target="#exampleModalToggle3" data-bs-toggle="modal"
+             style="margin-top: 150px; border-radius: 30px;">Skip for
+             now</button>
+         </div>
+       </div>
+     </div>
+   </div>
+   <!-- Location -->
+   <div class="modal" id="exampleModalToggle3" aria-hidden="true" aria-labelledby="exampleModalToggleLabel3"
+     tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+     <div class="modal-dialog modal-dialog-centered" style="max-width: 610px !important;">
+       <div class="modal-content">
+         <div class="modal-body d-flex justify-content-center align-items-center flex-column"
+           style="padding-left: 70px; padding-right: 70px;">
+           <%= image_tag("twitter_icon.png", class: "img-fluid h-25", style: "max-width: 30px; max-height: 30px;") %>
+           <p class="h2 mt-4 w-100"><b>Pick a description to your profile</b></p>
+           <p class="d-inline w-100" style="font-size: 15px; color:grey;">Tell Twitter about yourself</p>
+           <%= form_with url: profile_update_location_path, method: :post , data: { update_profile_target: "locationForm" } do |form| %>
+           <%= form.text_field :location, class: 'form-control', placeholder: "Location", maxlength: 30 %>
+           <%= form.submit "Save location", class: 'btn btn-outline-secondary w-75 mt-3' %>
+           <% end %>
+           <button class="btn btn-outline-secondary w-75" data-bs-target="#exampleModalToggle4" data-bs-toggle="modal"
+             style="margin-top: 150px; border-radius: 30px;" data-update-profile-target="locationButton">Skip for
+             now</button>
+         </div>
+       </div>
+     </div>
+   </div>
+   <!-- Bio -->
+   <div class="modal" id="exampleModalToggle4" aria-hidden="true" aria-labelledby="exampleModalToggleLabel4"
+     tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+     <div class="modal-dialog modal-dialog-centered" style="max-width: 610px !important;">
+       <div class="modal-content">
+         <div class="modal-body d-flex justify-content-center align-items-center flex-column"
+           style="padding-left: 70px; padding-right: 70px;">
+           <%= image_tag("twitter_icon.png", class: "img-fluid h-25", style: "max-width: 30px; max-height: 30px;") %>
+           <p class="h2 mt-4 w-100"><b>Pick a description to your profile</b></p>
+           <p class="d-inline w-100" style="font-size: 15px; color:grey;">Tell Twitter about yourself</p>
+           <%= form_with url: profile_update_bio_path, method: :post , data: { update_profile_target: "bioForm" } do |form| %>
+           <%= form.text_area :bio, class: 'form-control', placeholder: "Your bio", maxlength: 150 %>
+           <%= form.submit "Save bio", class: 'btn btn-outline-secondary w-75 mt-3' %>
+           <% end %>
+           <button class="btn btn-outline-secondary w-75" data-bs-target="#exampleModalToggle5" data-bs-toggle="modal"
+             style="margin-top: 150px; border-radius: 30px;" data-update-profile-target="bioButton">Skip for
+             now</button>
+         </div>
+       </div>
+     </div>
+   </div>
+   <!-- Finish -->
+   <div class="modal" id="exampleModalToggle5" data-toggle="modal" aria-hidden="true"
+     aria-labelledby="exampleModalToggleLabel5" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+     <div class="modal-dialog modal-dialog-centered" style="max-width: 610px !important;">
+       <div class="modal-content">
+         <div class="modal-body d-flex justify-content-center align-items-center flex-column"
+           style="padding-left: 70px; padding-right: 70px;">
+           <%= image_tag("twitter_icon.png", class: "img-fluid h-25", style: "max-width: 30px; max-height: 30px;") %>
+           <p class="h2 mt-4 w-100"><b>Thank you for providing more detailed information about yourself!</b></p>
+           <p class="d-inline w-100" style="font-size: 15px; color:grey;"> The information
+             will be displayed in your profile!</p>
+           <button class="btn btn-outline-secondary w-75" style="margin-top: 150px; border-radius: 30px;"
+             data-bs-dismiss="modal">View
+             Profile</button>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
